@@ -1,0 +1,211 @@
+/* =========================
+   GLOBAL HEADER
+   ========================= */
+.mm-header {
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 25px 32px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   MAIN LAYOUT
+   ========================= */
+.join-container {
+  display: flex;
+  min-height: calc(100vh - 56px);
+  background: #f1f5f9;
+  position: relative;
+}
+
+/* =========================
+   LEFT SIDE (IMAGE)
+   ========================= */
+.join-left {
+  flex: 1;
+  background: #eef2ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.join-left img {
+  max-width: 75%;
+  margin-bottom: 24px;
+}
+
+.join-left h2 {
+  font-size: 26px;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.join-left p {
+  font-size: 15px;
+  color: #475569;
+}
+
+/* =========================
+   RIGHT SIDE – CENTER CARD
+   ========================= */
+.join-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* FORM CARD */
+.join-right > h2,
+.join-right > input,
+.join-right > select,
+.join-right > .phone-group,
+.join-right > .price-box,
+.join-right > button {
+  width: 100%;
+  max-width: 420px;
+}
+
+.join-right {
+  gap: 14px;
+}
+
+/* CARD EFFECT */
+.join-right {
+  background: transparent;
+}
+
+.join-right::before {
+  content: "";
+  position: absolute;
+}
+
+/* =========================
+   FORM CARD STYLE
+   ========================= */
+.join-right {
+  flex-direction: column;
+}
+
+.join-right h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* =========================
+   INPUTS & SELECTS
+   ========================= */
+.join-right input,
+.join-right select {
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  transition: border 0.2s, background 0.2s;
+}
+
+.join-right input:focus,
+.join-right select:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+/* =========================
+   PHONE FIELD (CODE + NO)
+   ========================= */
+.phone-group {
+  display: flex;
+  gap: 10px;
+}
+
+.phone-group select {
+  width: 95px;
+  font-weight: 600;
+  background: #f1f5f9;
+}
+
+.phone-group input {
+  flex: 1;
+}
+
+/* =========================
+   PRICE BOX
+   ========================= */
+.price-box {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #16a34a;
+  text-align: center;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+.join-right button {
+  margin-top: 6px;
+  padding: 13px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.join-right button:hover {
+  opacity: 0.95;
+}
+
+/* =========================
+   DIVIDER LINE (DESKTOP)
+   ========================= */
+.join-container::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  left: 50%;
+  width: 1px;
+  background: #e5e7eb;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .join-container {
+    flex-direction: column;
+  }
+
+  .join-left {
+    display: none;
+  }
+
+  .join-container::after {
+    display: none;
+  }
+
+  .join-right {
+    padding: 24px;
+  }
+
+  .join-right > h2,
+  .join-right > input,
+  .join-right > select,
+  .join-right > .phone-group,
+  .join-right > .price-box,
+  .join-right > button {
+    max-width: 100%;
+  }
+}
