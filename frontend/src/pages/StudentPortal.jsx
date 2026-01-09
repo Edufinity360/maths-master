@@ -28,7 +28,7 @@ export default function StudentPortal() {
     const fetchProfile = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:6002/api/student/profile?email=${email}`
+          `http://72.62.198.205:6002/api/student/profile?email=${email}`
         );
 
         if (!data.success || !data.student) {

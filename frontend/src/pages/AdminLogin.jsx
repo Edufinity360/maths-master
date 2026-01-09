@@ -13,7 +13,7 @@ const AdminLogin = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:6002/api/admin-auth/login",
+        "http://72.62.198.205:6002/api/admin-auth/login",
         { email, password }
       );
 

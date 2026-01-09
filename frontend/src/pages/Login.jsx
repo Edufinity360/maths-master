@@ -12,7 +12,7 @@ export default function Login() {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:6002/api/student/login", {
+      const { data } = await axios.post("http://72.62.198.205:6002/api/student/login", {
         email,
         password,
       });
