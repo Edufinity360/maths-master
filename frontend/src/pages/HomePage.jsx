@@ -10,9 +10,9 @@ export default function HomePage() {
       <header className="header">
         <h1 className="logo">📘 MATHS MASTER</h1>
        <div className="nav-buttons">
-  <Link to="/join" className="join-link"><button>Join Now 🚀</button></Link>
+ 
 <Link to="/login" className="login-link"><button>Login 🔐</button></Link>
-<Link to="/admin" className="admin-link"><button>Admin Panel ⚙️</button></Link>
+
 </div>
       </header>
 <div className="announcement-bar">

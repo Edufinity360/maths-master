@@ -1,12 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Maths Master Backend",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -22,8 +20,5 @@
     "sib-api-v3-sdk": "^8.5.0",
     "socket.io": "^4.8.1",
     "uuid": "^13.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
