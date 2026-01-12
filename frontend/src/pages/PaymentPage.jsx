@@ -31,7 +31,7 @@ export default function PaymentPage() {
       setLoading(true);
 
       const { data } = await axios.post(
-        "http://72.62.198.205:6002/api/payment/create-order",
+        "/api/payment/create-order",
         { amount: finalAmount }
       );
 
@@ -50,7 +50,7 @@ export default function PaymentPage() {
 
         handler: async function (response) {
           const verifyRes = await axios.post(
-            "http://72.62.198.205:6002/api/payment/verify",
+            "/api/payment/verify",
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,

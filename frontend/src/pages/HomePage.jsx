@@ -36,6 +36,24 @@ export default function HomePage() {
     Enroll Now
   </button>
 </div>
+  <div className="global-eco-horizontal">
+
+  <div className="eco-center">
+    <span className="eco-title blink">
+      🌍 Global Education Ecosystem
+    </span>
+
+    <span className="eco-text">
+      Franchise – Start Your Education Business | Teachers – Teach Globally, Earn Smart |
+      Students – Learn with Discipline & Skills | Live in 20+ Countries (India, USA, UK, UAE)
+    </span>
+
+    <span className="eco-launch blink">
+      🚀 Launching Soon
+    </span>
+  </div>
+
+</div>
       {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-text">

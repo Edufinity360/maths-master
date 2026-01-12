@@ -143,12 +143,12 @@ export default function Footer() {
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="insta"><FaInstagram /></a>
               <a href="https://youtube.com" target="_blank" rel="noreferrer" className="yt"><FaYoutube /></a>
               <a href="https://t.me" target="_blank" rel="noreferrer" className="tg"><FaTelegramPlane /></a>
-              <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="wa"><FaWhatsapp /></a>
+              <a href="https://wa.me/919325005689" target="_blank" rel="noreferrer" className="wa"><FaWhatsapp /></a>
             </div>
 
             <p className="contact">
               <FaEnvelope /> support@mathsmaster.in <br />
-              📞 +91 9XXXXXXXXX
+              📞 +91 9325005689
             </p>
           </div>
 

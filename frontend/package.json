@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://72.62.198.205:6002",
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.0",
     "@testing-library/dom": "^10.4.1",

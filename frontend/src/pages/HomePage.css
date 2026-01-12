@@ -350,3 +350,49 @@
   font-weight: 900;
   pointer-events: none;
 }
+.global-eco-horizontal {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #0b1d3a, #102a52);
+  border-bottom: 2px solid #ffd700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.eco-center {
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.eco-title {
+  display: block;
+  font-weight: bold;
+  color: #00ffd5;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.eco-text {
+  display: block;
+  color: #f1f1f1;
+  font-size: 13px;
+}
+
+.eco-launch {
+  display: block;
+  margin-top: 4px;
+  font-weight: bold;
+  color: #ffdd00;
+  font-size: 14px;
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}

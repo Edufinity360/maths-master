@@ -28,7 +28,7 @@ export default function StudentPortal() {
     const fetchProfile = async () => {
       try {
         const { data } = await axios.get(
-          `http://72.62.198.205:6002/api/student/profile?email=${email}`
+          `/api/student/profile?email=${email}`
         );
 
         if (!data.success || !data.student) {
@@ -57,7 +57,7 @@ export default function StudentPortal() {
       setLiveLoading(true);
       try {
         const { data } = await axios.get(
-          "http://localhost:6002/api/live-classes",
+          "/api/live-classes",
           {
             params: {
               class: student.class,
@@ -87,7 +87,7 @@ export default function StudentPortal() {
 const fetchStudentHomework = async () => {
   try {
     const { data } = await axios.get(
-      "http://localhost:6002/api/admin/homework",
+      "/api/admin/homework",
       {
         params: {
           class: student.class,
@@ -115,7 +115,7 @@ useEffect(() => {
     const fetchRecordings = async () => {
   try {
     const { data } = await axios.get(
-      "http://localhost:6002/api/recordings",
+      "/api/recordings",
       {
         params: {
           class: student.class,
@@ -141,7 +141,7 @@ useEffect(() => {
       setNotesLoading(true);
       try {
         const { data } = await axios.get(
-          "http://localhost:6002/api/notes",
+          "/api/notes",
           {
             params: {
               class: student.class,

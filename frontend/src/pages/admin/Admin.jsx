@@ -70,7 +70,7 @@ const [recForm, setRecForm] = useState({
     setLoadingStudents(true);
     try {
       const { data } = await axios.get(
-  "http://72.62.198.205:6002/api/admin/students",
+  "/api/admin/students",
   {
     params: {
       ...filter,
@@ -95,7 +95,7 @@ const [recForm, setRecForm] = useState({
 
   try {
     const res = await axios.delete(
-      `http://72.62.198.205:6002/api/admin/students/${id}`
+      `/api/admin/students/${id}`
     );
 
     if (res.data.success) {
@@ -117,7 +117,7 @@ const [recForm, setRecForm] = useState({
 const fetchHomework = async (customFilter = filter) => {
   try {
     const { data } = await axios.get(
-      "http://72.62.198.205:6002/api/admin/homework",
+      "/api/admin/homework",
       { params: customFilter }
     );
 
@@ -130,7 +130,7 @@ const fetchHomework = async (customFilter = filter) => {
 };
 const submitHomework = async () => {
   try {
-    await axios.post("http://72.62.198.205:6002/api/admin/homework", hwForm);
+    await axios.post("/api/admin/homework", hwForm);
     setHwForm({
       title: "",
       description: "",
@@ -154,14 +154,14 @@ useEffect(() => {
 const deleteHomework = async (id) => {
   if (!window.confirm("Delete homework?")) return;
   await axios.delete(
-    `http://72.62.198.205:6002/api/admin/homework/${id}`
+    `/api/admin/homework/${id}`
   );
   fetchHomework();
 };
 
    const fetchRecordings = async () => {
   const { data } = await axios.get(
-    "http://72.62.198.205:6002/api/recordings",
+    "/api/recordings",
     { params: recForm }
   );
   if (data.success) setRecordings(data.recordings);
@@ -169,7 +169,7 @@ const deleteHomework = async (id) => {
 
 const addRecording = async () => {
   await axios.post(
-    "http://72.62.198.205:6002/api/recordings",
+    "/api/recordings",
     recForm
   );
   fetchRecordings();
@@ -177,7 +177,7 @@ const addRecording = async () => {
 
 const deleteRecording = async (id) => {
   await axios.delete(
-    `http://72.62.198.205:6002/api/recordings/${id}`
+    `/api/recordings/${id}`
   );
   fetchRecordings();
 };
@@ -190,7 +190,7 @@ useEffect(() => {
     setLoadingLeads(true);
     try {
       const { data } = await axios.get(
-  "http://72.62.198.205:6002/api/admin/students",
+  "/api/admin/students",
   {
     params: {
       ...filter,
@@ -222,7 +222,7 @@ useEffect(() => {
 }, [activeTab]);
 const fetchAdmins = async () => {
   try {
-    const { data } = await axios.get("http://72.62.198.205:6002/api/admin");
+    const { data } = await axios.get("/api/admin");
 
     if (data.success) {
       setAdmins(data.admins);
@@ -233,7 +233,7 @@ const fetchAdmins = async () => {
 };// eslint-disable-next-line
 const createAdmin = async () => {
   try {
-    await axios.post("http://72.62.198.205:6002/api/admin/create", adminForm);
+    await axios.post("/api/admin/create", adminForm);
     alert("Admin added");
     setShowAdminModal(false);
     setAdminForm({ name: "", email: "", password: "" });
@@ -246,7 +246,7 @@ const deleteAdmin = async (id) => {
   if (!window.confirm("Delete this admin?")) return;
 
   try {
-    await axios.delete(`http://72.62.198.205:6002/api/admin/${id}`);
+    await axios.delete(`/api/admin/${id}`);
     fetchAdmins();
   } catch (err) {
     alert("Delete failed");
@@ -255,7 +255,7 @@ const deleteAdmin = async (id) => {
   /* ================= LIVE CLASS ================= */
   const submitLiveClass = async () => {
     try {
-      await axios.post("http://72.62.198.205:6002/api/live-classes", {
+      await axios.post("/api/live-classes", {
         class: form.class,
         board: form.board,
         courseType: form.courseType,
@@ -279,7 +279,7 @@ const deleteAdmin = async (id) => {
 const fetchLiveClasses = async () => {
   try {
     const { data } = await axios.get(
-      "http://72.62.198.205:6002/api/live-classes/admin"
+      "/api/live-classes/admin"
     );
 
     if (data.success) {
@@ -294,7 +294,7 @@ const deleteLiveClass = async (id) => {
 
   try {
     await axios.delete(
-      `http://72.62.198.205:6002/api/live-classes/${id}`
+      `/api/live-classes/${id}`
     );
     fetchLiveClasses();
   } catch (err) {
@@ -304,7 +304,7 @@ const deleteLiveClass = async (id) => {
   /* ================= NOTES ================= */
   const fetchNotes = async () => {
     try {
-      const { data } = await axios.get("http://72.62.198.205:6002/api/notes", {
+      const { data } = await axios.get("/api/notes", {
         params: filter,
       });
       setNotes(data.success ? data.notes : []);
@@ -340,7 +340,7 @@ const deleteLiveClass = async (id) => {
     setUploading(true);
 
     // ❌ headers MAT bhejo – axios khud multipart handle karega
-    await axios.post("http://72.62.198.205:6002/api/notes", fd);
+    await axios.post("/api/notes", fd);
 
     alert("Notes uploaded");
 
@@ -368,7 +368,7 @@ const deleteLiveClass = async (id) => {
   }
 };
   const deleteNote = async (id) => {
-    await axios.delete(`http://72.62.198.205:6002/api/notes/${id}`);
+    await axios.delete(`/api/notes/${id}`);
     fetchNotes();
   };
 

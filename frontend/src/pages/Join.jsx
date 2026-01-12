@@ -50,7 +50,7 @@ export default function Join() {
     const finalPhone = `${form.phoneCode}${form.phone}`;
 
     try {
-      const res = await fetch("http://72.62.198.205:6002/api/student/register", {
+      const res = await fetch("/api/student/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
