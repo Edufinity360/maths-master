@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= PAGE ================= */
+.portal-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef3ff, #f9fbff);
+  padding-bottom: 40px;
+}
+
+/* ================= HEADER ================= */
+.portal-header {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 22px 16px 28px;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Brand row */
+.portal-brand {
+  max-width: 1100px;
+  margin: 0 auto 18px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.portal-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #e0e7ff;
+}
+
+/* ================= STUDENT CARD ================= */
+.portal-student-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ffffff, #f2f6ff);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  color: #0f172a;
+}
+
+.portal-student-card h2 {
+  margin: 0;
+  font-size: 22px;
+  grid-column: span 2;
+}
+
+.portal-student-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+/* Status badges */
+.tag-paid {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tag-unpaid {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ================= COURSE TOGGLE ================= */
+.portal-course-toggle {
+  margin: 24px auto 12px;
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.portal-course-toggle button {
+  padding: 8px 22px;
+  border-radius: 22px;
+  border: 1px solid #94a3b8;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.portal-course-toggle button:hover {
+  background: #e0e7ff;
+}
+
+.portal-course-toggle .active {
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 5px 14px rgba(37,99,235,0.45);
+}
+
+/* ================= TABS ================= */
+.portal-tabs {
+  max-width: 1100px;
+  margin: 10px auto 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 9px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e3a8a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tab:hover {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(37,99,235,0.45);
+}
+
+/* ================= CONTENT ================= */
+.portal-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* ================= ITEM CARD ================= */
+.item-card,
+.homework-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.item-card p {
+  margin-bottom: 10px;
+}
+
+.item-card button {
+  padding: 8px 16px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ================= HOMEWORK ================= */
+.hw-meta {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.hw-desc {
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.empty-text {
+  text-align: center;
+  padding: 30px;
+  color: #475569;
+}
+
+/* ================= RECORDINGS ================= */
+.recording-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.recording-table th,
+.recording-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 14px;
+}
+
+.recording-table th {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+/* ================= LOADING ================= */
+.portal-loading {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 20px;
+  color: #1e3a8a;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .portal-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .portal-student-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .portal-course-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portal-course-toggle button {
+    width: 220px;
+  }
+
+  .portal-tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
