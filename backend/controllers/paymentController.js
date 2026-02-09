@@ -1,6 +1,7 @@
 import Razorpay from "razorpay";
 import dotenv from "dotenv";
 import crypto from "crypto";
+import axios from "axios";
 import Student from "../models/studentModel.js";
 import { sendPaymentSuccessMail } from "../services/paymentEmailService.js";
 
@@ -26,7 +27,7 @@ export const createOrder = async (req, res) => {
       });
     }
 
-    // 🔥 START PAYMENT PENDING TIMER
+    // start pending timer
     if (email) {
       await Student.findOneAndUpdate(
         { email },
@@ -66,8 +67,7 @@ export const verifyPayment = async (req, res) => {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
-      email,
-      amount,
+      email
     } = req.body;
 
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
@@ -84,14 +84,13 @@ export const verifyPayment = async (req, res) => {
       });
     }
 
-    // Signature verify
+    // signature verify
     const body = `${razorpay_order_id}|${razorpay_payment_id}`;
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZORPAY_SECRET)
       .update(body)
       .digest("hex");
 
-    // ❌ PAYMENT FAILED
     if (expectedSignature !== razorpay_signature) {
       console.log("❌ Signature mismatch");
       return res.status(400).json({
@@ -100,20 +99,32 @@ export const verifyPayment = async (req, res) => {
       });
     }
 
-    // ✅ PAYMENT SUCCESS → STOP PENDING REMINDERS
-    const student = await Student.findOneAndUpdate(
-      { email },
-      {
-        isPaid: true,
-        paymentPendingAt: null,
-        paymentRemindersSent: 0,
-      },
-      { new: true }
-    );
+    // mark student paid
+   // ✅ PAYMENT SUCCESS
+const student = await Student.findOneAndUpdate(
+  { email },
+  {
+    isPaid: true,
+    paymentPendingAt: null,
+    paymentRemindersSent: 0,
+  },
+  { new: true }
+);
 
-    // ✅ SUCCESS MAIL (SERVICE LAYER ONLY)
-    await sendPaymentSuccessMail(student, amount);
+// 🔥 fetch real Razorpay amount
+const order = await razorpay.orders.fetch(razorpay_order_id);
+const amountPaid = order.amount / 100;
 
+// 🔥 create invoice
+await axios.post("http://localhost:6002/api/billing/invoice", {
+  name: student.name,
+  email: student.email,
+  course: student.courseType,
+  amount: amountPaid,
+});
+
+// success mail
+await sendPaymentSuccessMail(student, amountPaid);
     console.log("✅ PAYMENT VERIFIED for:", email);
 
     return res.json({

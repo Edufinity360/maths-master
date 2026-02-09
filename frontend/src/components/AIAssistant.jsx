@@ -53,17 +53,20 @@ export default function AIAssistant() {
       {/* Popup */}
       {open && (
         <div
-          style={{
-            position: "fixed",
-            bottom: "80px",
-            right: "20px",
-            width: "320px",
-            background: "#fff",
-            borderRadius: "10px",
-            boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-            padding: "15px",
-            zIndex: 9999,
-          }}
+         style={{
+  position: "fixed",
+  bottom: "80px",
+  right: "20px",
+  width: "320px",
+  maxHeight: "70vh",   // ✅ popup screen se bahar nahi jayega
+  overflowY: "auto",   // ✅ andar scroll hoga
+  background: "#111",
+  borderRadius: "10px",
+  boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+  padding: "15px",
+  zIndex: 9999,
+  color: "#fff"
+}}
         >
           <h4>Mathmaster AI Assistant</h4>
 
@@ -93,7 +96,7 @@ export default function AIAssistant() {
             <div
               style={{
                 marginTop: "10px",
-                background: "#f1f5f9",
+                background: "#203804",
                 padding: "8px",
                 borderRadius: "6px",
                 fontSize: "14px",

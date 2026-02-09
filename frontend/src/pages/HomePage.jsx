@@ -2,62 +2,67 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import AIAssistant from "../components/AIAssistant";
+
 export default function HomePage() {
   return (
     <div className="homepage">
 
-     <header className="header">
-  <div className="logo-box">
-    <img src="/Mathmaster.png" alt="Maths Master" className="logo-img" />
-    <span className="logo-text">Math Master</span>
-  </div>
+      {/* HEADER */}
+      <header className="header">
+        <div className="logo-box">
+          <img src="/Mathmaster.png" alt="Maths Master" className="logo-img" />
+          <span className="logo-text">Math Master</span>
+        </div>
 
-  <div className="nav-buttons">
-    <Link to="/login" className="login-link">
-      <button>Login 🔐</button>
-    </Link>
-  </div>
-</header>
-<div className="announcement-bar">
-  <span>🎯 <b>MHT-CET Live Class – Coming Soon</b></span>
+        <div className="nav-buttons">
+          <Link to="/login" className="login-link">
+            <button>Login 🔐</button>
+          </Link>
+        </div>
+      </header>
 
-  <span>
-    💥 Enrollments{" "}
-    <b className="price-cross">
-      ₹9,999
-      <span className="red-cross">✖</span>
-    </b>{" "}
-    → Just ₹4,999
-  </span>
+      {/* ANNOUNCEMENT */}
+      <div className="announcement-bar">
+        <span>🎯 <b>MHT-CET Live Class – Coming Soon</b></span>
 
-  <span className="blink">⏰ Limited Seats</span>
+        <span>
+          💥 Enrollments{" "}
+          <b className="price-cross">
+            ₹9,999
+            <span className="red-cross">✖</span>
+          </b>{" "}
+          → Just ₹4,999
+        </span>
 
-  <button
-    className="announce-btn"
-    onClick={() => (window.location.href = "/join")}
-  >
-    Enroll Now
-  </button>
-</div>
-  <div className="global-eco-horizontal">
+        <span className="blink">⏰ Limited Seats</span>
 
-  <div className="eco-center">
-    <span className="eco-title blink">
-      🌍 Global Education Ecosystem
-    </span>
+        <button
+          className="announce-btn"
+          onClick={() => (window.location.href = "/join")}
+        >
+          Enroll Now
+        </button>
+      </div>
 
-    <span className="eco-text">
-      Franchise – Start Your Education Business | Teachers – Teach Globally, Earn Smart |
-      Students – Learn with Discipline & Skills | Live in 20+ Countries (India, USA, UK, UAE)
-    </span>
+      {/* GLOBAL BAR */}
+      <div className="global-eco-horizontal">
+        <div className="eco-center">
+          <span className="eco-title blink">
+            🌍 Global Education Ecosystem
+          </span>
 
-    <span className="eco-launch blink">
-      🚀 Launching Soon
-    </span>
-  </div>
+          <span className="eco-text">
+            Franchise – Start Your Education Business | Teachers – Teach Globally, Earn Smart |
+            Students – Learn with Discipline & Skills | Live in 20+ Countries (India, USA, UK, UAE)
+          </span>
 
-</div>
-      {/* HERO SECTION */}
+          <span className="eco-launch blink">
+            🚀 Launching Soon
+          </span>
+        </div>
+      </div>
+
+      {/* HERO */}
       <section className="hero-section">
         <div className="hero-text">
           <h2>Master Class 12 Maths – CBSE & Maharashtra Board</h2>
@@ -65,7 +70,12 @@ export default function HomePage() {
             Structured lectures • Topicwise notes • Crash courses •
             Live interactive sessions with expert teachers.
           </p>
-          <Link to="/join"><button className="started-btn">Start Learning Today 🚀</button></Link>
+
+          <Link to="/join">
+            <button className="started-btn">
+              Start Learning Today 🚀
+            </button>
+          </Link>
         </div>
 
         <img
@@ -75,7 +85,7 @@ export default function HomePage() {
         />
       </section>
 
-      {/* PRICING SECTION */}
+      {/* PRICING */}
       <section className="pricing-section">
         <h2 className="pricing-title">Choose Your Learning Plan</h2>
 
@@ -92,7 +102,9 @@ export default function HomePage() {
             <h3>📘 CBSE Regular Course</h3>
             <p>Complete syllabus + Weekly Tests + Recorded Backup</p>
             <h4>₹ 1999 / Month</h4>
-            <Link to="/join"><button className="popular-btn">Most Popular ⭐</button></Link>
+            <Link to="/join">
+              <button className="popular-btn">Most Popular ⭐</button>
+            </Link>
           </div>
 
           <div className="price-card">
@@ -105,7 +117,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE SECTION */}
+      {/* WHY */}
       <section className="why-section">
         <h2>Why Students Love Maths Master ❤️</h2>
         <ul>
@@ -115,8 +127,8 @@ export default function HomePage() {
           <li>🏆 Score Booster Test Series</li>
         </ul>
       </section>
+
       <AIAssistant />
-     
 
     </div>
   );

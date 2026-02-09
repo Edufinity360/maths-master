@@ -52,7 +52,7 @@ export default function Join() {
     if (cls === "MHTCET") {
       if (course === "Crash") price = 4999;
       else if (course === "Regular" && planType === "yearly") price = 14999;
-      else if (course === "Regular" && planType === "monthly") price = 10;
+      else if (course === "Regular" && planType === "monthly") price = 1499;
     } else {
       if (course === "Crash") price = 1999;
       else if (course === "Regular" && board === "CBSE") {

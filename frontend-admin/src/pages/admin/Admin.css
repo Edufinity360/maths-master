@@ -732,3 +732,50 @@ button:active {
   height: 80px;
   width: auto;
 }
+/* ================= BLOG UI ================= */
+
+.admin-blog {
+  padding: 20px;
+}
+
+.admin-blog input,
+.admin-blog textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.admin-blog textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.admin-blog .primary-btn {
+  margin-top: 5px;
+}
+
+.admin-blog ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.admin-blog li {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-btn-row {
+  display: flex;
+  justify-content: flex-end;
+}

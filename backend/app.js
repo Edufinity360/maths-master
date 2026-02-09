@@ -13,7 +13,8 @@ import "./cron/paymentPendingCron.js";
 import "./cron/monthlyPaymentReminderCron.js";
 import "./cron/classReminderCron.js";
 import contactRoute from "./routes/contactRoute.js";
-
+import blogRoutes from "./routes/blogRoutes.js";
+import billingRoutes from "./routes/billingRoutes.js";
 import aiRoute from "./routes/aiRoute.js";
 const app = express();
 
@@ -47,6 +48,8 @@ app.use("/api/recordings", recordingRoute);
 app.use("/api/admin-auth", adminAuthRoute);
 app.use("/api/ai", aiRoute);
 app.use("/api/contact", contactRoute);
-
+app.use("/api/blogs", blogRoutes);
+app.use("/api/billing", billingRoutes);
+app.use("/invoices", express.static("invoices"));
 
 export default app;

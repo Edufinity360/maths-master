@@ -159,6 +159,8 @@ export default function Footer() {
             <ul>
               <li><a href="/join">Join Now</a></li>
               <li><a href="/login">Student Login</a></li>
+                <li><a href="/blogs">Blogs</a></li>
+
               <li>
                 <button
                   type="button"

@@ -41,7 +41,7 @@ const newStudent = new Student({
 });
 
     await newStudent.save();
-
+    
     // ===== EMAIL SEND (FORCED AWAIT) =====
     try {
       const template = welcomeEmail({ name });

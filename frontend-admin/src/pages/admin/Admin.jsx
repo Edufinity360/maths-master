@@ -6,6 +6,21 @@ export default function Admin() {
   const [activeTab, setActiveTab] = useState("live");
   const [showModal, setShowModal] = useState(false);
   const [admins, setAdmins] = useState([]);// eslint-disable-next-line
+  /* ================= BLOG ================= */
+const [blogs, setBlogs] = useState([]);
+const [blogForm, setBlogForm] = useState({
+  title: "",
+  content: "",
+  author: "Admin",
+});
+
+/* ================= BILLING ================= */
+const [billing, setBilling] = useState([]);
+const [billingFilter, setBillingFilter] = useState({
+  class: "",
+  board: "",
+  courseType: "",
+});  // eslint-disable-next-line
 const [showAdminModal, setShowAdminModal] = useState(false);
 
 const [adminForm, setAdminForm] = useState({
@@ -258,6 +273,82 @@ const fetchAdmins = async () => {
     console.error("FETCH ADMINS ERROR", err);
   }
 };// eslint-disable-next-line
+/* ================= BLOG FETCH ================= */
+useEffect(() => {
+  if (activeTab !== "blog") return;
+  fetchBlogs();
+}, [activeTab]);
+
+const fetchBlogs = async () => {
+  try {
+    const { data } = await axios.get("/api/blogs");
+
+    console.log("BLOG RAW RESPONSE:", data);
+
+    // 👇 force convert to array
+    const blogArray = Array.isArray(data.blogs)
+      ? data.blogs
+      : data.blog
+      ? [data.blog]
+      : [];
+
+    setBlogs(blogArray);
+  } catch (err) {
+    console.error("BLOG FETCH ERROR", err);
+  }
+};
+const deleteBlog = async (id) => {
+  if (!window.confirm("Delete this blog?")) return;
+
+  await axios.delete(`/api/blogs/${id}`);
+
+  fetchBlogs(); // refresh list
+};
+
+const createBlog = async () => {
+  try {
+    await axios.post("/api/blogs/admin/create", blogForm);
+    alert("Blog created");
+    setBlogForm({ title: "", content: "", author: "Admin" });
+    fetchBlogs();
+  } catch {
+    alert("Blog failed");
+  }
+};
+/* ================= BILLING FETCH ================= */
+useEffect(() => {
+  if (activeTab !== "billing") return;
+  fetchBilling();// eslint-disable-next-line
+}, [activeTab, billingFilter]);
+
+const fetchBilling = async () => {
+  try {
+    const { data } = await axios.get("/api/billing");
+    console.log("BILLING DATA:", data);
+
+    setBilling(data); // ✅ direct
+  } catch (err) {
+    console.error("BILLING FETCH ERROR", err);
+  }
+};
+const deleteInvoice = async (id) => {
+  if (!window.confirm("Delete this invoice?")) return;
+
+  try {
+    await axios.delete(`/api/billing/${id}`);
+    fetchBilling();
+  } catch (err) {
+    console.error("DELETE ERROR", err);
+  }
+};
+
+const downloadPDF = (invoiceNumber) => {
+  window.open(
+    `http://localhost:6002/invoices/${invoiceNumber}.pdf`,
+    "_blank"
+  );
+};
+
 const createAdmin = async () => {
   try {
     await axios.post("/api/admin/create", adminForm);
@@ -426,7 +517,7 @@ const deleteLiveClass = async (id) => {
       <div className="admin-body">
         {/* ===== SIDEBAR ===== */}
         <div className="admin-sidebar">
-          {["live", "students", "leads", "contact", "addUser", "homework", "notes", "recordings"].map((t) => (
+          {["live", "students", "leads", "contact", "addUser", "homework", "notes", "recordings", "blog", "billing"].map((t) => (
             <button
               key={t}
               className={activeTab === t ? "active" : ""}
@@ -1000,6 +1091,144 @@ const deleteLiveClass = async (id) => {
     )}
   </>
 )} 
+{/* ================= BLOG ================= */}
+{activeTab === "blog" && (
+  <div className="admin-blog">
+
+    <h3>Create Blog</h3>
+
+    <div className="blog-form">
+
+  <input
+    type="text"
+    placeholder="Blog title"
+    value={blogForm.title}
+    onChange={(e) =>
+      setBlogForm({ ...blogForm, title: e.target.value })
+    }
+  />
+
+  <textarea
+    placeholder="Write blog content..."
+    value={blogForm.content}
+    onChange={(e) =>
+      setBlogForm({ ...blogForm, content: e.target.value })
+    }
+  />
+
+  <div className="blog-btn-row">
+    <button className="primary-btn" onClick={createBlog}>
+      Publish Blog
+    </button>
+  </div>
+
+</div>
+
+    <hr />
+
+    <h3>All Blogs</h3>
+
+    {blogs.length === 0 ? (
+      <p>No blogs yet</p>
+    ) : (
+      <ul>
+  {blogs.map((b) => (
+    <li key={b._id} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+      <span>
+        <strong>{b.title}</strong> — {b.author}
+      </span>
+
+      <button
+        className="delete-btn"
+        onClick={() => deleteBlog(b._id)}
+      >
+        Delete
+      </button>
+    </li>
+  ))}
+</ul>
+    )}
+
+  </div>
+)}
+
+{/* ================= BILLING ================= */}
+{activeTab === "billing" && (
+  <div className="admin-billing">
+
+    <h3>Billing Records</h3>
+
+    <div className="student-filters">
+      <select
+        value={billingFilter.class}
+        onChange={(e) =>
+          setBillingFilter({ ...billingFilter, class: e.target.value })
+        }
+      >
+        <option value="">All Class</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="MHT-CET">MHT-CET</option>
+        <option value="JEE">JEE</option>
+        <option value="NEET">NEET</option>
+      </select>
+
+      <select
+        value={billingFilter.courseType}
+        onChange={(e) =>
+          setBillingFilter({ ...billingFilter, courseType: e.target.value })
+        }
+      >
+        <option value="">All Course</option>
+        <option value="Crash">Crash</option>
+        <option value="Regular">Regular</option>
+      </select>
+    </div>
+
+    {billing.length === 0 ? (
+      <p>No billing records</p>
+    ) : (
+      <table className="student-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {billing.map((b) => (
+            <tr key={b._id}>
+              <td>{b.name}</td>
+              <td>{b.email}</td>
+              <td>₹{b.amount}</td>
+              <td>{b.status}</td>
+
+              <td>
+                <button
+                  onClick={() => downloadPDF(b.invoiceNumber)}
+                >
+                  PDF
+                </button>
+
+                <button
+                  style={{ marginLeft: 8, color: "red" }}
+                  onClick={() => deleteInvoice(b._id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )}
+
+  </div>
+)}
 {/* ================= ADD USER ================= */}
 {activeTab === "addUser" && (
   <div>

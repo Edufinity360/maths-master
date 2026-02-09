@@ -8,6 +8,7 @@ import Join from "./pages/Join";
 import Login from "./pages/Login";
 import StudentPortal from "./pages/StudentPortal";
 import Footer from "./components/Footer";
+import BlogPage from "./pages/BlogPage";
 function App() {
   return (
     <Router>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/join" element={<Join />} />    {/* 🔥 Route added */}
         <Route path="/login" element={<Login />} />
         <Route path="/student-portal" element={<StudentPortal />} />
-        
+        <Route path="/blogs" element={<BlogPage />} />
 
       </Routes>
          {/* 👇 YE LINE ADD KAR */}

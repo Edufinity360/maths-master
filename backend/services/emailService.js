@@ -35,3 +35,19 @@ export const sendEmail = async (to, subject, html) => {
   console.log("✅ Email sent:", info.messageId);
   return info;
 };
+export const sendInvoiceEmail = async (student) => {
+  const pdfBuffer = await generateInvoicePDF(student);
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: student.email,
+    subject: "Your Invoice - Maths Master",
+    html: "<h2>Invoice attached</h2>",
+    attachments: [
+      {
+        filename: "invoice.pdf",
+        content: pdfBuffer,
+      },
+    ],
+  });
+};
