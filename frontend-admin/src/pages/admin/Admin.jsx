@@ -505,7 +505,7 @@ const deleteLiveClass = async (id) => {
   className="logout-btn"
   onClick={() => {
     localStorage.removeItem("adminToken"); // token clear
-    window.location.href = "/"; // admin login path
+    window.location.href = "https://admin.mathmaster.co.in"; // admin login path
   }}
 >
   Logout
