@@ -135,7 +135,7 @@ useEffect(() => {
   const fetchContacts = async () => {
     setLoadingContacts(true);
     try {
-      const { data } = await axios.get("http://localhost:6002/api/contact");
+      const { data } = await axios.get("https://api.mathmaster.co.in/api/contact");
 
       console.log("CONTACT DATA:", data);
 
@@ -344,7 +344,7 @@ const deleteInvoice = async (id) => {
 
 const downloadPDF = (invoiceNumber) => {
   window.open(
-    `http://localhost:6002/invoices/${invoiceNumber}.pdf`,
+    `https://api.mathmaster.co.in/invoices/${invoiceNumber}.pdf`,
     "_blank"
   );
 };

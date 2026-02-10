@@ -116,7 +116,7 @@ const order = await razorpay.orders.fetch(razorpay_order_id);
 const amountPaid = order.amount / 100;
 
 // 🔥 create invoice
-await axios.post("http://localhost:6002/api/billing/invoice", {
+await axios.post("https://api.mathmaster.co.in/api/billing/invoice", {
   name: student.name,
   email: student.email,
   course: student.courseType,

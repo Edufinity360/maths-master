@@ -13,7 +13,7 @@ export default function AIAssistant() {
     setAnswer("");
 
     try {
-      const res = await fetch("http://localhost:6002/api/ai/ask", {
+      const res = await fetch("https://api.mathmaster.co.in/api/ai/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),

@@ -40,7 +40,7 @@ app.get("/api/test-email", async (req, res) => {
 });
 app.use("/api/student", studentRoutes);
 app.use("/api/payment", paymentRoutes);
-app.use("/api", liveClassRoute);
+app.use("/api/liveclass", liveClassRoute);
 app.use("/api/notes", noteRoutes);
 app.use("/uploads", express.static("uploads"));
 app.use("/api/admin", adminRoute);
