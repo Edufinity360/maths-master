@@ -30,7 +30,7 @@ export const welcomeEmail = ({ name }) => ({
         </ul>
 
         <div style="text-align:center; margin:30px 0;">
-          <a href="https://mathsmaster.co.in/login"
+          <a href="https://mathmaster.co.in/login"
              style="background:#1e40af; color:#ffffff; padding:12px 24px;
                     text-decoration:none; border-radius:6px; display:inline-block;">
             Login to Your Account
@@ -121,7 +121,7 @@ export const paymentPendingEmail = (student) => ({
 
               <!-- CTA -->
               <div style="text-align:center;margin:30px 0;">
-                <a href="https://mathsmaster.co.in/payment"
+                <a href="https://mathmaster.co.in/payment"
                    style="
                      background:#2563eb;
                      color:#ffffff;
@@ -229,7 +229,7 @@ export const paymentSuccessEmail = ({
 
         <!-- CTA -->
         <div style="text-align:center;margin:36px 0;">
-          <a href="https://mathsmaster.co.in/login"
+          <a href="https://mathmaster.co.in/login"
              style="
                background:#2563eb;
                color:#ffffff;

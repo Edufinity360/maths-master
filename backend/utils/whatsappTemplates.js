@@ -2,8 +2,8 @@
 // Pure formatting layer — no API logic
 
 const brand = "Maths Master";
-const loginURL = "https://mathsmaster.co.in/login";
-const paymentURL = "https://mathsmaster.co.in/payment";
+const loginURL = "https://mathmaster.co.in/login";
+const paymentURL = "https://mathmaster.co.in/payment";
 
 /* ---------------- WELCOME ---------------- */
 
