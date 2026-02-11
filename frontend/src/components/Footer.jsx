@@ -192,9 +192,19 @@ export default function Footer() {
 
         </div>
 
+        
         <div className="footer-bottom">
-          ©️ {new Date().getFullYear()} Maths Master. All Rights Reserved.
-        </div>
+  ©️ {new Date().getFullYear()} Maths Master. All Rights Reserved.
+</div>
+
+{/* Mobile Navigation Buttons */}
+<div className="mobile-nav-buttons">
+  <button onClick={() => window.history.back()}>
+    ← Back
+  </button>
+
+  
+</div>
       </footer>
 
       {(openPolicy || openContact) && (

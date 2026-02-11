@@ -209,3 +209,40 @@
   }
 
 }
+.footer-social-icons img {
+  width: 28px;
+}
+
+.footer-bottom {
+  color: #bbb;
+  font-size: 12px;
+}
+/* hidden by default (desktop) */
+.mobile-nav-buttons {
+  display: none;
+}
+
+/* mobile only */
+@media (max-width: 768px) {
+  .mobile-nav-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    padding: 6px 12px;
+    z-index: 999;
+  }
+
+  .mobile-nav-buttons button {
+    background: #ffd700;
+    color: #000;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;   /* small readable text */
+    font-weight: 600;
+  }
+}

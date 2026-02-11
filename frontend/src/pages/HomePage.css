@@ -418,3 +418,34 @@
   color: yellow;
   letter-spacing: 0.5px;
 }
+/* ================= MOBILE HEADER FIX ================= */
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+  }
+
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .nav-buttons button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
